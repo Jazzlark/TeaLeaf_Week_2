@@ -42,7 +42,7 @@ def initialize
   @cards = []
   ['H', 'D' 'S', 'C'].each do |suit|
     ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'].each do |face_value|
-        @cards << Card.new (suit, face_value)
+        @cards << Card.new(suit, face_value)
         end
       end
         scramble!
@@ -60,7 +60,6 @@ end
 def size
   cards.size
  end
-end
 
 module Hand
   def show_hand
@@ -72,7 +71,7 @@ module Hand
 end
 
 def total
-  face_values = cards.map {|card|} card.face_value }
+  face_values = cards.map {|card| card.face_value }
 
   total = 0
   face_values.each do |val|
@@ -96,14 +95,14 @@ def add_card (new_card)
 end
 
 def is_busted?
-  total > Blackjack: : BLACKJACK_AMOUNT
+  total > Blackjack: :BLACKJACK_AMOUNT
 end
 end
 
  class Player
   include Hand
 
-  attr_accessor :name, : cards
+  attr_accessor :name, :cards
 
 def intialiaze (n)
     @name = n
@@ -134,7 +133,7 @@ class Dealer
 end
 
 class Blackjack
-  attr_accessor :deck :player :dealer
+  attr_accessor :deck, :player, :dealer
 
   BLACKJACK_AMOUNT = 21
   DEALER_HIT_MIN = 17
@@ -262,7 +261,10 @@ if gets.chomp == '1'
   end
 
   game = Blackjack.new
-  game.start      
+  game.start  
+
+  
+
 
 
 
