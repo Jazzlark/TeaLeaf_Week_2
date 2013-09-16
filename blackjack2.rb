@@ -95,7 +95,7 @@ def add_card (new_card)
 end
 
 def is_busted?
-  total > Blackjack: :BLACKJACK_AMOUNT
+  total > Blackjack::BLACKJACK_AMOUNT
 end
 end
 
@@ -140,7 +140,7 @@ class Blackjack
 
   def initialize
     @deck = Deck.new
-    @player = Player.new ("Player1")
+    @player = Player.new("Player1")
     @dealer = Dealer.new
   end
 
@@ -262,6 +262,12 @@ if gets.chomp == '1'
 
   game = Blackjack.new
   game.start  
+
+  #The major nouns are: Card, Deck, Player, Dealer, BlackJack
+  #The major verb are Card is: Suit and face_value
+  #The major verb for deck is: hand, scramble, pop, size, deal_one, total, is_busted, and show_flop
+  #The major verbs for Player/Dealer is: show_flop
+  #The major verbs for BlackJack is: set player name, deal cards, show flop, black_or_bust, total 
 
   
 
