@@ -11,7 +11,7 @@ require 'pry'
 class Card
 attr_accessor :suit, :face_value
 
-def initialize (s, fv)
+def initialize(s, fv)
   @suit = s
   @face_value = fv
 end
@@ -90,7 +90,7 @@ end
 
 total
 end
-def add_card (new_card)
+def add_card(new_card)
   cards << new_card
 end
 
@@ -104,7 +104,7 @@ end
 
   attr_accessor :name, :cards
 
-def intialiaze (n)
+def intialize(n)
     @name = n
     @cards = []
 end
@@ -150,10 +150,10 @@ class Blackjack
   end
 
   def deal_cards
-    player.add_card (deck.deal_one)
-    dealer.add_card (deck.deal_one)
-    player.add_card (deack.deal_one)
-    dealer.add_card (deack.deal_one)
+    player.add_card(deck.deal_one)
+    dealer.add_card(deck.deal_one)
+    player.add_card(deack.deal_one)
+    dealer.add_card(deack.deal_one)
   end
 
   def show_flop
@@ -161,7 +161,7 @@ class Blackjack
     dealer.show_flop
   end
 
-  def blackjack_or_bust (player_or_dealer)
+  def blackjack_or_bust(player_or_dealer)
     if player_or_dealer.total == BLACKJACK_AMOUNT
       if player_or_dealer.is_a (Dealer)
         puts "Sorry, dealer hit blackjack. #{player.name} loses...maybe next time."
@@ -170,7 +170,7 @@ class Blackjack
       end
       play_again?
     elsif player_or_dealer.is_busted?
-      if player_or_dealer.is_a? (Dealer)
+      if player_or_dealer.is_a?(Dealer)
         puts "Congratulations, dealer busted. #{player.name} wins!"
       else
         puts "Sorry, #{player.name} busted.  #{player_name} loses."
@@ -181,13 +181,13 @@ class Blackjack
   def player_turn
     puts "#{}{player.name}'s turn."
 
-    blackjack_or_bust? (player)
+    blackjack_or_bust?(player)
 
     while !player.is_busted?
       puts "What wold you like to do? 1) hit 2) stay "
 response = gets.chomp
 
-if !['1', '2',]. include? (response)
+if !['1', '2',]. include?(response)
   puts "Error: you must enter 1 or 2"
   next
 end
@@ -200,10 +200,10 @@ end
  #hit
  new_card = deck.deal_one
  puts "Dealing card to #{player.name} : #{new_card}"
- player.add_card (new_card)
+ player.add_card(new_card)
  puts "#{player.name}'s total is now: #{player.total}"
 
- blackjack_or_bust (player)
+ blackjack_or_bust(player)
 end
 puts "#{player.name} stays at #{player.total}."
 end
@@ -211,14 +211,14 @@ end
 def dealer_turn
   puts "Dealer's turn."
 
-  blackjack_or_bust (dealer)
+  blackjack_or_bust(dealer)
   while dealer.total < DEALER_HIT_MIN
     new_card = deck.deal_one
     puts "Dealing card to dealer: #{new_card}"
     dealer.add_card (new_card)
     puts "Dealer total is now: #{dealer.total}"
 
-    blackjack_or_bust? (dealer)
+    blackjack_or_bust?(dealer)
   end
   puts "Dealer stays at #{dealer.total}"
 end
